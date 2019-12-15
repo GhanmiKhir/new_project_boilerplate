@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -87,7 +87,7 @@ module.exports = (env, options) => ({
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css'
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     ...globSync('src/**/*.html').map(fileName => {
       return new HtmlWebpackPlugin({
         template: fileName,
